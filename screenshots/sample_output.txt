@@ -1,0 +1,47 @@
+
+================================================================
+             INTELLIGENT COURIER PLANNER
+================================================================
+Depot: DEPOT | Box capacity: 25
+
+1) PARCEL PRIORITIZATION (deadline ↑, priority ↓)
+  P02   -> B        weight= 6 priority=4 deadline= 1 value=65
+  P08   -> A        weight= 3 priority=4 deadline= 1 value=45
+  P01   -> A        weight= 8 priority=5 deadline= 2 value=80
+  P06   -> B        weight= 4 priority=5 deadline= 2 value=60
+  P04   -> D        weight= 5 priority=5 deadline= 3 value=70
+  P03   -> C        weight=10 priority=3 deadline= 4 value=90
+  P05   -> E        weight= 7 priority=2 deadline= 5 value=55
+  P07   -> F        weight= 9 priority=3 deadline= 6 value=75
+  P09   -> D        weight= 6 priority=2 deadline= 7 value=50
+
+2) OPTIMAL BOX CONTENTS (0/1 Knapsack DP)
+  P02 -> B (weight 6, value 65)
+  P08 -> A (weight 3, value 45)
+  P06 -> B (weight 4, value 60)
+  P04 -> D (weight 5, value 70)
+  P05 -> E (weight 7, value 55)
+  Total weight: 25/25
+  Total value:  295
+
+3) DELIVERY ROUTE (Nearest Neighbor over Dijkstra distances)
+  Stop sequence: DEPOT -> A -> B -> D -> E -> DEPOT
+  Road path:     DEPOT -> A -> B -> D -> E -> D -> B -> DEPOT
+  Total route distance: 26.00 distance units
+
+4) ALGORITHM RUNTIMES
+  Merge sort               :    0.0170 ms
+  Knapsack DP              :    0.0356 ms
+  All-source Dijkstra      :    0.0893 ms
+  Nearest-neighbor TSP     :    0.0162 ms
+================================================================
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
